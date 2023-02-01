@@ -11,6 +11,28 @@ const products = getProducts();
 
   <!-- when clicking a product, we should use NuxtLink to go to the route with the correct id, we could use a route middleware (client/server) to check if the provided id exists or not.-->
 
+  <!-- Showing a list for fun -->
+  <div>
+    <ul class="bg-blue-200 flex flex-col gap-4 items-start p-4">
+      <li
+        v-for="product in products"
+        class="bg-green-100 p-6 flex flex-col gap-1 min-w-[330px]"
+      >
+        <NuxtLink :to="`/store/${product.id}`">
+          <article>
+            <h2 class="text-xl font-bold">{{ product.title }}</h2>
+            <p>{{ product.discoutPercentage }}</p>
+            <img
+              :url="product.images[0].previewUrl"
+              :alt="product.images[0].alt"
+            />
+            <pre>{{ product.id }}</pre>
+          </article>
+        </NuxtLink>
+      </li>
+    </ul>
+  </div>
+
   <pre class="test-xs">{{ products }}</pre>
 </template>
 

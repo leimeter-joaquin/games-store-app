@@ -8,15 +8,18 @@ console.log(route.params);
 definePageMeta({
   middleware: [
     "test", // this lives on /middlewares/test.ts
-    function () {
+    function ({ params }, from) {
       // This runs on the server AND on the client, catching any errors and rendering the error.vue component.
-      // We need to get these info again because definePageMeta is a compiler macro
-      const route = useRoute();
+      // We need to get these info again because definePageMeta is a compiler macro that does not have access to the route on line 2.
       const products = getProducts();
+
+      console.log("route.params", params);
+      console.log("products", products);
 
       // You could use this middleware OR use <NuxtErrorBoundary /> on some component.
       // More info https://nuxt.com/docs/api/components/nuxt-error-boundary#nuxterrorboundary
-      if (!products.some((product) => product.id === route.params.productId)) {
+
+      if (!products.some((product) => product.id === params.productId)) {
         return createError({
           statusCode: 404,
           message: "product not found",
@@ -35,7 +38,7 @@ definePageMeta({
 
   <pre>{{ product }}</pre>
 
-  <button @click="navigateTo('/store/1234')">asd</button>
+  <button @click="navigateTo('/store')">Go Back</button>
 </template>
 
 <style scoped></style>
