@@ -13,10 +13,10 @@ const products = getProducts();
 
   <!-- Showing a list for fun -->
   <div>
-    <ul class="bg-blue-200 flex flex-col gap-4 items-start p-4">
+    <ul class="flex flex-col items-start gap-4 bg-blue-200 p-4">
       <li
         v-for="product in products"
-        class="bg-green-100 p-6 flex flex-col gap-1 min-w-[330px]"
+        class="flex min-w-[330px] flex-col gap-1 bg-green-100 p-6"
       >
         <NuxtLink :to="`/store/${product.id}`">
           <article>

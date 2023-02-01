@@ -26,7 +26,7 @@ definePageMeta({
         });
       }
 
-      //TODO: Find a better way to check this, don't call the data 2 times.
+      //TODO: Find a better way to check this, don't call the data 2 times. I probably have to do this, I'd like to call the data on the middleware and use it on the page. Maybe using a Pinia store it's possible.
     },
   ],
 });
