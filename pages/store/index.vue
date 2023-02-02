@@ -13,7 +13,12 @@ const products = getProducts();
 
   <!-- Showing a list for fun -->
   <div>
-    <ul class="flex flex-col items-start gap-4 bg-blue-200 p-4">
+    <Carousel
+      :products="products"
+      :container-width="500"
+      :container-height="300"
+    />
+    <!-- <ul class="flex flex-col items-start gap-4 bg-blue-200 p-4">
       <li
         v-for="product in products"
         class="flex min-w-[330px] flex-col gap-1 bg-green-100 p-6"
@@ -30,10 +35,10 @@ const products = getProducts();
           </article>
         </NuxtLink>
       </li>
-    </ul>
+    </ul> -->
   </div>
 
-  <pre class="test-xs">{{ products }}</pre>
+  <!-- <pre class="test-xs">{{ products }}</pre> -->
 </template>
 
 <style scoped></style>

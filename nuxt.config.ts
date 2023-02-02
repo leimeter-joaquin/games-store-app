@@ -3,5 +3,5 @@ export default defineNuxtConfig({
   typescript: {
     shim: false,
   },
-  modules: ["@nuxtjs/tailwindcss", "nuxt-headlessui"],
+  modules: ['@nuxtjs/tailwindcss', 'nuxt-headlessui', 'nuxt-icon'],
 });
