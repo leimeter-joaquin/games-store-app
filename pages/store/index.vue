@@ -1,5 +1,8 @@
 <script lang="ts" setup>
+import { useMainStore } from '~~/stores/main';
+
 const products = getProducts();
+const mainStore = useMainStore();
 </script>
 
 <template>
@@ -12,6 +15,16 @@ const products = getProducts();
   <!-- when clicking a product, we should use NuxtLink to go to the route with the correct id, we could use a route middleware (client/server) to check if the provided id exists or not.-->
 
   <!-- Showing a list for fun -->
+  <div class="flex items-center gap-4 p-4">
+    <span>{{ mainStore.counter }}</span>
+    <button class="bg-blue-200 px-2 py-1" @click="mainStore.counter += 1">
+      increment
+    </button>
+    <button class="bg-blue-200 px-2 py-1" @click="mainStore.reset">
+      reset
+    </button>
+    <span class="text-xl font-semibold">Pinia!</span>
+  </div>
   <div>
     <ul class="flex flex-col items-start gap-4 bg-blue-200 p-4">
       <li

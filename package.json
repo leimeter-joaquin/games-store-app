@@ -13,5 +13,9 @@
     "nuxt-headlessui": "^1.1.1",
     "prettier": "^2.8.3",
     "prettier-plugin-tailwindcss": "^0.2.2"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.4.6",
+    "pinia": "^2.0.29"
   }
 }
