@@ -11,6 +11,6 @@
 const error = useError();
 
 const handleReset = () => {
-  navigateTo("/");
+  clearError({ redirect: '/' });
 };
 </script>

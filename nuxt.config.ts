@@ -3,7 +3,12 @@ export default defineNuxtConfig({
   typescript: {
     shim: false,
   },
-  modules: ['@nuxtjs/tailwindcss', 'nuxt-headlessui', '@pinia/nuxt'],
+  modules: [
+    '@nuxtjs/tailwindcss',
+    'nuxt-headlessui',
+    '@pinia/nuxt',
+    '@vueuse/nuxt',
+  ],
 
   imports: {
     dirs: ['./stores'],
