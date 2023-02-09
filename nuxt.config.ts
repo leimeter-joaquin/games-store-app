@@ -17,4 +17,8 @@ export default defineNuxtConfig({
   pinia: {
     autoImports: ['defineStore', 'acceptHMRUpdate'],
   },
+
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
+  },
 });
