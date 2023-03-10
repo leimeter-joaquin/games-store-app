@@ -7,6 +7,7 @@ export const useMainStore = defineStore('main', {
     counter: 0,
     name: 'Eduardo',
   }),
+
   // optional getters
   getters: {
     // getters receive the state as first parameter
@@ -16,6 +17,7 @@ export const useMainStore = defineStore('main', {
       return this.doubleCounter + 1;
     },
   },
+
   // optional actions
   actions: {
     reset() {

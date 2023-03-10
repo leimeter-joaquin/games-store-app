@@ -1,8 +1,17 @@
 <script lang="ts" setup>
+import { useStorage } from '@vueuse/core';
+import { Product } from '~~/types/product';
+
 const route = useRoute();
 const product = getProduct(route.params.productId as string);
 
 const loading = ref(true);
+
+const cart = useStorage<Product[]>('cart', []);
+
+const addToCart = () => {
+  product && cart.value?.push(product);
+};
 
 console.log(route.params);
 
@@ -42,6 +51,25 @@ definePageMeta({
     },
   ],
 });
+
+const asd = [
+  {
+    id: '1',
+    title: 'Dota 2',
+    releaseDate: '2013-07-09T03:00:00.000Z',
+    price: 0,
+    discountPercentage: 0,
+    images: [{ url: 'asd', previewUrl: '', alt: 'asd' }],
+  },
+  {
+    id: '3',
+    title: 'Red Dead Redemption 2',
+    releaseDate: '2018-10-26T03:00:00.000Z',
+    price: 60,
+    discountPercentage: 0,
+    images: [{ url: 'asd', previewUrl: '', alt: 'asd' }],
+  },
+];
 </script>
 
 <template>
@@ -51,7 +79,11 @@ definePageMeta({
       <div>Page: store with product id: {{ $route.params.productId }}</div>
       <pre>{{ product }}</pre>
     </div>
-    <button @click="navigateTo('/store')">Go Back</button>
+    <div class="flex gap-4 p-8">
+      <button @click="navigateTo('/store')">Go Back</button>
+      <button @click="addToCart">Add</button>
+      <button @click="cart = []">Clear cart</button>
+    </div>
   </div>
 </template>
 

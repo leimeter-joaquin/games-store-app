@@ -3,7 +3,7 @@ export type Product = {
   title: string;
   releaseDate: Date;
   price: number;
-  discoutPercentage: number;
+  discountPercentage: number;
   images: {
     url: string;
     previewUrl: string;

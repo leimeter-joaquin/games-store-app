@@ -3,11 +3,6 @@ const products = getProducts();
 
 const loading = ref(true);
 
-useHead({
-  title: 'My Store',
-  meta: [{ name: 'description', content: 'My amazing site.' }],
-});
-
 onMounted(() => {
   setTimeout(() => {
     loading.value = false;
@@ -33,7 +28,7 @@ onMounted(() => {
           <NuxtLink :to="`/store/${product.id}`">
             <article>
               <h2 class="text-xl font-bold">{{ product.title }}</h2>
-              <p>{{ product.discoutPercentage }}</p>
+              <p>{{ product.discountPercentage }}</p>
               <img
                 :url="product.images[0].previewUrl"
                 :alt="product.images[0].alt"
